@@ -36,13 +36,10 @@ public class StageOne {
 	        {
 	            // grab a zip file entry
 	            ZipEntry entry = (ZipEntry) zipFileEntries.nextElement();
-	            String currentEntry = entry.getName();
-
-	            File destFile = new File(newPath, currentEntry);
-	            File destinationParent = destFile.getParentFile();
-
-	            // create the parent directory structure if needed
-	            destinationParent.mkdirs();
+	            String name = entry.getName();
+	            String currentEntry = name.split("/")[name.split("/").length - 1];
+	            if (!currentEntry.contains(".java") && !currentEntry.contains(".txt") && !currentEntry.contains(".docx") && !currentEntry.contains(".pdf"))
+	            		continue;
 
 	            if (!entry.isDirectory())
 	            {
