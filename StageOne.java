@@ -41,6 +41,8 @@ public class StageOne {
 	            if (!currentEntry.contains(".java") && !currentEntry.contains(".txt") && !currentEntry.contains(".docx") && !currentEntry.contains(".pdf"))
 	            		continue;
 
+	            File destFile = new File(newPath, currentEntry);
+
 	            if (!entry.isDirectory())
 	            {
 	                BufferedInputStream is = new BufferedInputStream(zip
